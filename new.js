@@ -119,15 +119,17 @@ function callNextProblem()
 	
 	document.getElementById('userAnswer').value = '';
 	count++;
+	console.log(count);
 	
 
 	document.getElementById('checkAnswer').addEventListener('click', checkAnswer);
 
-	if(count >=document.getElementById('numberOfQuestions').value)
+	if(count >document.getElementById('numberOfQuestions').value)
 	{
 		
 		restart.style.display='inline';
         next.style.display='none';
+		alert("Your Quiz Score:"+correct);
 		document.getElementById('nextProblem').removeEventListener('click', callNextProblem)
 	} 
 }
