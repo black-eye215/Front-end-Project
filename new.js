@@ -125,8 +125,7 @@ function callNextProblem()
 
 	if(count >=document.getElementById('numberOfQuestions').value)
 	{
-		const label=document.getElementById('msg');
-	    label.textContent="You have reached the end of questions";
+		
 		restart.style.display='inline';
         next.style.display='none';
 		document.getElementById('nextProblem').removeEventListener('click', callNextProblem)
