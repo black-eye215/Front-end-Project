@@ -7,37 +7,67 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div class="container" id="settings">
         <h1>Settings</h1>
+        <div id="alertMessage" class="alert-message" style="display: none;"></div>
         <div class="problem">
-            <input type="number" id="rangeFrom" placeholder="range from" />
-            <input type="number" id="rangeTo" placeholder="range to" />
-            <input type="number" id="numberOfQuestions" placeholder="number of Questions" />
+            <input type="number" id="rangeFrom" placeholder="Range from" />
+            <input type="number" id="rangeTo" placeholder="Range to" />
+            <input type="number" id="numberOfQuestions" placeholder="Number of Questions" />
         </div>
         <div class="operations">
             <label for="add_operation">Addition </label><input type="checkbox" name="add_operation" id="add_operation">
             <label for="sub_operation">Subtraction </label><input type="checkbox" name="sub_operation" id="sub_operation">
             <label for="mul_operation">Multiplication </label><input type="checkbox" name="mul_operation" id="mul_operation">
             <label for="div_operation">Division </label><input type="checkbox" name="div_operation" id="div_operation">
-        </div><br>
+            <br>
+            <label for="Showanswer">Show Correct Answer On Every Question </label><input type="checkbox" id="Showanswer" name="Showanswer">
+            <label for="timeroption">Timer option</label><input type="checkbox" id="timeroption" name="timeroption">
+        </div>
+        
         <button id="startQuestions">Start</button>
     </div>
+    
 
     <div class="container" id="questionary">
         <h1>Questions</h1>
-        <div class="problem">
+        <div id="time">
+            <label for="totalTime">Time </label><span id="totalTime">0</span> seconds
+        </div>
+        
+        <div id='problems' class="problem">
+            <p id="timerst" >You have <span id="seconds">20 </span>seconds to answer!</p>
+            <br>
             <span id="num1"></span><label id="operators"> </label><span id="num2"></span> = 
             <input type="number" id="userAnswer" placeholder="Your answer" />
         </div>
+        <br>
         <button id="checkAnswer">Check Answer</button>
         <div>
             <label for="correct">True: </label><span id="correct"></span>
             <label for="wrong">False: </label><span id="wrong"></span>
+            <br>
+            <div id="display">
+            <label for="Displayresult">Correct Answer is: </label><span id="Displayresult"></span>
+            </div>
+            <br>
+            <label for="count">Question Number:</label><span id="count"></span>
+            <label for="Total">Total Number of Questions:</label><span id="Total"></span>
+
         </div>
         <button id="nextProblem">Next Problem</button>
-        <button id="restartQuiz">Restart Quiz</button>
+       
+        </div>
+        
 
-        <label id="msg"></label>
+    </div>
+    <div class="container" id="result">
+        <label for="Result">Your Score is: </label><span id="Result"></span><label>%</label>
+        <br>
+        <label for="resulttime">Time taken: </label><span id="resulttime"></span>
+        <br>
+        <button id="restartQuiz">Restart Quiz</button>
     </div>
     
     <script src="new.js"></script>
