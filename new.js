@@ -6,6 +6,7 @@ var wrong = 0;
 var count = 0;
 var operators = [];
 var operator = 0;
+const span = document.getElementById("second");
 var numberOfQuestions1 = parseInt(document.getElementById('numberOfQuestions').value);
 var from = parseInt(document.getElementById('rangeFrom').value);
 var to = parseInt(document.getElementById('rangeTo').value);
@@ -29,7 +30,7 @@ function startTotalTimer() {
     totalTimeDisplay.textContent = totalTime;
     totalTimer = setInterval(function() {
         totalTime++; 
-		console.log(totalTime)
+		
         totalTimeDisplay.textContent = totalTime; 
     }, 1000);
 }
@@ -37,13 +38,17 @@ function stopTotalTimer() {
     clearInterval(totalTimer); // Stop the total timer
 }
 function timesup() {
-	const span = document.querySelector("#seconds");
+	
 	const seconds = parseInt(span.textContent) - 1;
 	if (seconds == 0) {
 		clearInterval(timer);
 		if(document.getElementById('timeroption').checked)
 		{
-		  document.getElementById('timerst').textContent="Time is Up!!!";
+		  document.getElementById('timerst').style.display='none';
+		  
+		  alert('Time is Up!!!!')
+		  
+		  
 		  document.getElementById('userAnswer').disabled=true;
 		  checkAnswer();
 
@@ -132,9 +137,9 @@ function checkAnswer() {
 
 	}
 	if (operator == '/') {
-		answer = parseFloat(document.getElementById('userAnswer').value).toFixed(5);
+		answer = parseFloat(document.getElementById('userAnswer').value);
 		console.log(randoms[0] / randoms[1])
-		const b = parseFloat(randoms[0] / randoms[1]).toFixed(5);
+		const b = parseFloat(randoms[0] / randoms[1]);
 		if (Math.abs(b - answer) < 0.000001) {
 			correct++;
 			document.getElementById('correct').textContent = correct;
@@ -153,9 +158,15 @@ function checkAnswer() {
 }
 
 function callNextProblem() {
+	showanswerlabel.style.display='none';
+	
+    
+	
 	if (timer) {
+		
+		span.textContent = "20"; 
         clearInterval(timer);
-        document.querySelector("#seconds").textContent = "20 "; 
+	
     }
     if(document.getElementById('timeroption').checked)
     {
@@ -302,7 +313,6 @@ document.getElementById('startQuestions').addEventListener("click", () => {
 
 
 })
-
 
 
 
