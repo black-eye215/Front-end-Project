@@ -202,7 +202,7 @@ function callNextProblem() {
 }
 function set_label(operator) {
 	const label = document.querySelector("#operators");
-	label.textContent = '' + operator;
+	label.textContent = ' ' + operator;
 }
 function decide_operator() {
 	if (document.getElementById('add_operation').checked) {
